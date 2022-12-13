@@ -3,8 +3,10 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-//Importing router
-const routes = require('./routes/routes')
+
+//Importing routers
+const noteRoute = require('./routes/noteRoute')
+const htmlRoute = require('./routes/htmlRoute')
 
 const PORT = process.env.PORT || 3001;
 
@@ -14,6 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
+// Route for note calls
+app.use('/note', noteRoute);
+// Route for HTML calls
+app.use('/', htmlRoute);
 
 // verifies the server connected to the port properly
 app.listen(PORT, () => {
