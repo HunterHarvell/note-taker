@@ -2,8 +2,7 @@
 const noteRouter = require('express').Router();
 const { nanoid } = require('nanoid');
 const fs = require('fs');
-const data = require('../data/db.json');
-const { addNote, deleteNote } = require('../lib/data.js');
+const jsonPath = require('path').join(__dirname, '..', 'db', 'db.json')
 
 // helper functions
 const notes = () => {
@@ -52,9 +51,15 @@ noteRouter.post('/notes', (req, res) => {
 });
 
 // delete route
-noteRouter.delete('/notes/:id', (req, res) => {
-    deleteNote(req.params);
-    res.json();
-});
+noteRouter.delete('/notes/:id', function (req, res) {
+    let id = req.params.id;
+    Notes()
+        .then(notes => notes.filter((note) => note.id !== id))
+        .then(filteredNotes => addNote(filteredNotes))
+        .then(isSuccess => res.json({ success: isSuccess }))
+        .catch((err) => res.status(500).json({
+            error: err
+        }));
+})
 
 module.exports = noteRouter;
