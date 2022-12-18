@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Route for note calls
-app.use('/note', noteRoute);
+app.use('/api', noteRoute);
 // Route for HTML calls
 app.use('/', htmlRoute);
 
