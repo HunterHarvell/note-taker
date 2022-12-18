@@ -53,7 +53,7 @@ noteRouter.post('/notes', (req, res) => {
 // delete route
 noteRouter.delete('/notes/:id', function (req, res) {
     let id = req.params.id;
-    Notes()
+    notes()
         .then(notes => notes.filter((note) => note.id !== id))
         .then(filteredNotes => addNote(filteredNotes))
         .then(isSuccess => res.json({ success: isSuccess }))
