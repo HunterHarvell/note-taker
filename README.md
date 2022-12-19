@@ -1,4 +1,5 @@
 # note-taker
+This application will allow the user to be able to save notes and that data remain persistently using Express.js. The user will also be able to delete the notes once they have completed the task or they no longer need the information they have saved. 
 
 ## User Story
 AS A small business owner
@@ -19,3 +20,14 @@ WHEN I click on an existing note in the list in the left-hand column
 THEN that note appears in the right-hand column
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
+
+## Installing
+Clone the repository to your device. Once in the repository, run 'npm install' to install the dependencies needed for the application. You can run the application with the command 'start', and looking at localhost:3001 through the browser. The application is also hosted on Heroku below. 
+
+## Deployed Application Links
+
+Deployed application: https://hw11.herokuapp.com/
+
+Git Repository: https://github.com/HunterHarvell/note-taker.git
+
+![homepage](./public/assets/homepage.png)
