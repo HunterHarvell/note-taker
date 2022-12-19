@@ -23,5 +23,5 @@ app.use('/', htmlRoute);
 
 // verifies the server connected to the port properly
 app.listen(PORT, () => {
-    console.log(`Express server started on port ${PORT}`);
+    console.log(`Server listening on port ${PORT}`);
 });
